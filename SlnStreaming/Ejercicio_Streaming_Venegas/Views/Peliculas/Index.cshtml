@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BEUStreaming.Pelicula>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_pelicula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fech_lanz_pelicula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.categoria_pelicula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duracion_pelicula)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_pelicula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fech_lanz_pelicula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.categoria_pelicula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duracion_pelicula)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_pelicula }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_pelicula }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_pelicula })
+        </td>
+    </tr>
+}
+
+</table>
